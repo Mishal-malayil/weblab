@@ -1,7 +1,11 @@
-nav{
- background-color:green;
- width:15%;
- height:100%;
+.sidebar{
+   height: 100%;
+      width: 150px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: green;
+      padding-top: 20px;
 
 }
 
@@ -15,12 +19,24 @@ text-decoration:none;
 font-size:15px;
 
 }
-.sidebar a.active{
-color:red;
-}
-#content{
+.sidebar a:hover {
+      color: red;
+    }
+.content{
 margin-left:220px;
-padding:20px;
+padding:auto;
 display:block;
 }
+ .main {
+      margin-left: 150px;
+      padding: 10px 20px;
+      height: 100vh;
+      
+    }
+ iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+     
+    }
 
