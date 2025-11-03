@@ -4,15 +4,19 @@ padding-bottom:10px;
 }
 #id{
 cursor:default;
+background-color: red;
 }
 tr:hover {
-  background-color:tan;
+  background-color:burlywood;
   cursor: pointer;
 }
 body{
  font-family:sans-serif;
  }
- tr{
-  background-color:grey;
+ .col{
+  background-color:#f2f2f2;
+  }
+  table tr{
+  background-color:white;
   }
  
