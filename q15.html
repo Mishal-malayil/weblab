@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+
 <html>
 <head>
     <title>STUDENT REGISTRATION FORM</title>
@@ -11,7 +11,7 @@
         
     </style>
 </head>
-<body
+<body>
 
 <h2 align="center">STUDENT REGISTRATION FORM</h2>
 
@@ -114,29 +114,29 @@
                 <td>1</td>
                 <td>Class X</td>
                 <td><input type="text" class="board" id="board1"></td>
-                <td><input type="text" class="percent" id="percent1"></td>
-                <td><input type="text" class="year" id="year1"></td>
+                <td><input type="text" class="percent" id="percent1" oninput="this.value = this.value.replace(/[^0-9.%]/g, '')"maxlength="4"></td>
+                <td><input type="text" class="year" id="year1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="4"></td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>Class XII</td>
                 <td><input type="text" class="board" id="board2"></td>
-                <td><input type="text" class="percent" id="percent2"></td>
-                <td><input type="text" class="year" id="year2"></td>
+                <td><input type="text" class="percent" id="percent2"  oninput="this.value = this.value.replace(/[^0-9.%]/g, '')"maxlength="4"></td>
+                <td><input type="text" class="year" id="year2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="4"></td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>Degree</td>
                 <td><input type="text" class="board" id="board3"></td>
-                <td><input type="text" class="percent" id="percent3"></td>
-                <td><input type="text" class="year" id="year3"></td>
+                <td><input type="text" class="percent" id="percent3" oninput="this.value = this.value.replace(/[^0-9.%]/g, '')"maxlength="4"></td>
+                <td><input type="text" class="year" id="year3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="4"></td>
             </tr>
             <tr>
                 <td>4</td>
                 <td>Masters</td>
                 <td><input type="text" class="board" id="board4"></td>
-                <td><input type="text" class="percent" id="percent4"></td>
-                <td><input type="text" class="year" id="year4"></td>
+                <td><input type="text" class="percent" id="percent4" oninput="this.value = this.value.replace(/[^0-9.%]/g, '')"maxlength="4"></td>
+                <td><input type="text" class="year" id="year4" oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="4"></td>
             </tr>
         </table>
         <div class="error" id="qualificationError"></div>
@@ -179,12 +179,14 @@ function validateForm() {
     // First Name
     let fname = document.getElementById("fname");
     let fnameError = document.getElementById("fnameError");
+    
     if (fname.value.trim() === "") {
         fnameError.textContent = "First name is required";
         isValid = false;
     } else {
         fnameError.textContent = "";
     }
+    
 
     // Last Name
     let lname = document.getElementById("lname");
@@ -310,7 +312,7 @@ function validateForm() {
 
     // Qualification
     let boardInputs = document.querySelectorAll(".board");
-    let percentInputs = document.querySelectorAll(".percent");
+    let percentInputs = document.getElementById("percent3");
     let yearInputs = document.querySelectorAll(".year");
     let qualificationError = document.getElementById("qualificationError");
 
@@ -339,4 +341,3 @@ function validateForm() {
 
 
 </body>
-</html>
