@@ -14,18 +14,24 @@ if ($conn->connect_error) {
 
 // When form is submitted
 if (isset($_POST['submit'])) {
+    $book_no = $_POST['book_no'];
     $title = $_POST['title'];
     $edition = $_POST['edition'];
     $publisher = $_POST['publisher'];
 
-    // Insert record (book_no auto increments, so don’t include it)
-    $sql = "INSERT INTO Book_details (Title, Edition, Publisher)
-            VALUES ('$title', '$edition', '$publisher')";
+    // Insert record (manual Book_no)
+    $sql = "INSERT INTO Book_details (Book_no, Title, Edition, Publisher)
+            VALUES ('$book_no', '$title', '$edition', '$publisher')";
 
     if ($conn->query($sql)) {
-        echo "<p style='color:green;' align='center'>✅ Book added successfully!</p>";
+        echo "<p style='color:green;' align='center'>
+                ✅ Book added successfully!<br>
+                📘 Book_no: <b>$book_no</b>
+              </p>";
     } else {
-        echo "<p style='color:red;' align='center'>❌ Error inserting data: " . $conn->error . "</p>";
+        echo "<p style='color:red;' align='center'>
+                ❌ Error inserting data: " . $conn->error . "
+              </p>";
     }
 }
 ?>
@@ -38,8 +44,13 @@ if (isset($_POST['submit'])) {
 <body>
     <h2 align="center">BOOK INFORMATION</h2>
 
+    <!-- Form to Add Book -->
     <form method="post" action="">
         <table border="1" align="center" cellpadding="5" cellspacing="0">
+            <tr>
+                <td>Book No:</td>
+                <td><input type="number" name="book_no" required></td>
+            </tr>
             <tr>
                 <td>Title:</td>
                 <td><input type="text" name="title" required></td>
@@ -60,7 +71,10 @@ if (isset($_POST['submit'])) {
         </table>
     </form>
 
-    <h3 align="center">Book Details</h3>
+    <br><hr><br>
+
+    <!-- Display All Books -->
+    <h3 align="center">All Book Details</h3>
 
     <table border="1" align="center" cellpadding="5" cellspacing="0">
         <tr style="background-color:lightgray;">
