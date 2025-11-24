@@ -7,12 +7,12 @@ $database = "Mishal_db";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
-// Check connection
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// When form is submitted
+
 if (isset($_POST['submit'])) {
     $emp_id = $_POST['emp_id'];
     $emp_name = $_POST['emp_name'];
